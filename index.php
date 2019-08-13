@@ -1,7 +1,7 @@
 <?php
 $is_auth = rand(0, 1);
 
-$user_name = 'Андрей'; // укажите здесь ваше имя
+$user_name = 'Андрей';
 
 $categories = [
     'Доски и лыжи',
@@ -50,6 +50,17 @@ $products = [
         'img_url' => 'img/lot-6.jpg'
     ]
 ];
+
+function format_amount($number)
+{
+    $number = ceil($number);
+
+    if ($number >= 1000) {
+        $number = number_format($number, 0, '', ' ');
+    }
+
+    return $number . '₽';
+}
 
 ?>
 <!DOCTYPE html>
@@ -128,7 +139,7 @@ $products = [
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?= $product['price']; ?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?= format_amount($product['price']); ?></span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
