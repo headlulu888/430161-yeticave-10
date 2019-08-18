@@ -5,7 +5,7 @@
         <!--заполните этот список из массива категорий-->
         <?php foreach ($categories as $category): ?>
             <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html"><?= $category; ?></a>
+                <a class="promo__link" href="pages/all-lots.html"><?= htmlspecialchars($category); ?></a>
             </li>
         <?php endforeach; ?>
     </ul>
@@ -22,15 +22,16 @@
                     <img src="<?= $product['img_url']; ?>" width="350" height="260" alt="">
                 </div>
                 <div class="lot__info">
-                    <span class="lot__category"><?= $product['category']; ?></span>
-                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= $product['name']; ?></a></h3>
+                    <span class="lot__category"><?= htmlspecialchars($product['category']); ?></span>
+                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= htmlspecialchars($product['name']); ?></a></h3>
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?= format_amount($product['price']); ?></span>
+                            <span class="lot__cost"><?= htmlspecialchars(format_amount($product['price'])); ?></span>
                         </div>
-                        <div class="lot__timer timer">
-                            12:23
+                        <?php $arr = get_dt_range($product['last_date']); ?>
+                        <div class="lot__timer timer <?php if ($arr[0] < 1) { echo 'timer--finishing'; } ?>">
+                            <?= $arr[0] . ':' . $arr[1]; ?>
                         </div>
                     </div>
                 </div>
