@@ -29,3 +29,19 @@ INSERT INTO bet (`rate`, `user_id`, `lot_id`) VALUES (8000, 3, 5);
 INSERT INTO user (`email`, `name`, `password`, `avatar`, `contact`, `lot_id`, `bet_id`) VALUES ('petr@ya.ru', 'Петр', '12345678', 'img/petr.jpg', '89250774779', 6, 2);
 INSERT INTO user (`email`, `name`, `password`, `avatar`, `contact`, `lot_id`, `bet_id`) VALUES ('vasya@mail.ru', 'Вася', '12345678', 'img/vasya.jpg', '89250774780', 6, 1);
 INSERT INTO user (`email`, `name`, `password`, `avatar`, `contact`, `lot_id`, `bet_id`) VALUES ('egor@gmail.com', 'Егор', '12345678', 'img/egor.jpg', '89250774781', 5, 3);
+
+-- Получить все категории
+SELECT * FROM category;
+SELECT name FROM category ORDER BY id;
+
+-- Получить все новые лоты
+SELECT l.title, l.date_add, l.image, l.initial_rate, c.name FROM lot l JOIN category c ON l.category_id = c.id WHERE (date_add > NOW() - INTERVAL 5 DAY) AND date_close > NOW();
+
+-- Показать лот по его id + category
+SELECT l.*, c.name FROM lot l JOIN category c ON l.category_id = c.id WHERE l.id = 5;
+
+-- Обновить название лота по его идентификатору;
+UPDATE lot SET title = 'Маска Oakley Canopy fix 2' WHERE id = 6;
+
+-- Получить список ставок с сортировкой
+SELECT b.* FROM lot l JOIN bet b ON b.lot_id = l.id WHERE l.id = 6 ORDER BY b.date_add;
