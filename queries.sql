@@ -8,17 +8,17 @@ INSERT INTO category (`name`, `code`) VALUES ('Разное', 'other');
 
 -- Заполнение таблицы lot
 INSERT INTO lot (`date_add`, `title`, `description`, `image`, `initial_rate`, `date_close`, `rate_step`, `user_id`, `winner_id`, `category_id`)
-VALUES ('2019-08-12', '2014 Rossignol District Snowboard', 'Сноуборд', 'img/lot-1.jpg', '10999', '2019-08-12', 100, 1, 2, 1);
+VALUES ('2019-08-12', '2014 Rossignol District Snowboard', 'Сноуборд', 'img/lot-1.jpg', '10999', '2019-08-17', 100, 1, 2, 1);
 INSERT INTO lot (`date_add`, `title`, `description`, `image`, `initial_rate`, `date_close`, `rate_step`, `user_id`, `winner_id`, `category_id`)
-VALUES ('2019-08-13', 'DC Ply Mens 2016/2017 Snowboard', 'Сноуборд поновее', 'img/lot-2.jpg', '159999', '2019-08-12', 200, 2, 2, 1);
+VALUES ('2019-08-13', 'DC Ply Mens 2016/2017 Snowboard', 'Сноуборд поновее', 'img/lot-2.jpg', '159999', '2019-08-18', 200, 2, 2, 1);
 INSERT INTO lot (`date_add`, `title`, `description`, `image`, `initial_rate`, `date_close`, `rate_step`, `user_id`, `winner_id`, `category_id`)
-VALUES ('2019-08-14', 'Крепления Union Contact Pro 2015 года размер L/XL', 'Крепленее для большого размера', 'img/lot-3.jpg', '8000', '2019-08-12', 400, 3, 3, 2);
+VALUES ('2019-08-14', 'Крепления Union Contact Pro 2015 года размер L/XL', 'Крепленее для большого размера', 'img/lot-3.jpg', '8000', '2019-08-19', 400, 3, 3, 2);
 INSERT INTO lot (`date_add`, `title`, `description`, `image`, `initial_rate`, `date_close`, `rate_step`, `user_id`, `winner_id`, `category_id`)
-VALUES ('2019-08-15', 'Ботинки для сноуборда DC Mutiny Charocal', 'Ботинки класной фирмы DC', 'img/lot-4.jpg', '10999', '2019-08-12', 600, 2, 1, 3);
+VALUES ('2019-08-15', 'Ботинки для сноуборда DC Mutiny Charocal', 'Ботинки класной фирмы DC', 'img/lot-4.jpg', '10999', '2019-08-20', 600, 2, 1, 3);
 INSERT INTO lot (`date_add`, `title`, `description`, `image`, `initial_rate`, `date_close`, `rate_step`, `user_id`, `winner_id`, `category_id`)
-VALUES ('2019-08-15', 'Куртка для сноуборда DC Mutiny Charocal', 'Куртка класной фирмы DC', 'img/lot-5.jpg', '7500', '2019-08-12', 300, 1, 3, 4);
+VALUES ('2019-08-16', 'Куртка для сноуборда DC Mutiny Charocal', 'Куртка класной фирмы DC', 'img/lot-5.jpg', '7500', '2019-08-21', 300, 1, 3, 4);
 INSERT INTO lot (`date_add`, `title`, `description`, `image`, `initial_rate`, `date_close`, `rate_step`, `user_id`, `winner_id`, `category_id`)
-VALUES ('2019-08-15', 'Маска Oakley Canopy', 'Шикарная маска сочитается вообще со всем', 'img/lot-6.jpg', '5400', '2019-08-12', 2000, 1, 2, 6);
+VALUES ('2019-08-17', 'Маска Oakley Canopy', 'Шикарная маска сочитается вообще со всем', 'img/lot-6.jpg', '5400', '2019-08-22', 2000, 1, 2, 6);
 
 -- Заполнение таблицы bet
 INSERT INTO bet (`rate`, `user_id`, `lot_id`) VALUES (6000, 2, 6);

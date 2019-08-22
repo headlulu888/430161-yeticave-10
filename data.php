@@ -15,7 +15,7 @@
         'Разное'
     ];
 
-    $products = [
+    $lots = [
         [
             'name' => '2014 Rossignol District Snowboard',
             'category' => 'Доски и лыжи',

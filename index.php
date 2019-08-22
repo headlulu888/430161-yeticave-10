@@ -5,7 +5,7 @@
 
     $content = include_template('main.php', [
         'categories' => $categories,
-        'products' => $products,
+        'lots' => $lots,
     ]);
 
     $layout = include_template('layout.php', [
