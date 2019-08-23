@@ -24,5 +24,3 @@
         $array = [$hours, $mins];
         return $array;
     }
-//    $arr = get_dt_range('2019-10-15');
-//    print($arr[0] . ':' . $arr[1]);

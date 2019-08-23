@@ -1,4 +1,9 @@
 <?php
+    require_once('config/db.php');
+
+    $link = mysqli_connect($db['host'], $db['user'], $db['password'], $db['database']);
+
+    mysqli_set_charset($link, 'utf8');
 
     $is_auth = rand(0, 1);
 
@@ -6,16 +11,21 @@
 
     $title = 'Главная';
 
-    $categories = [
+    /*$categories = [
         'Доски и лыжи',
         'Крепления',
         'Ботинки',
         'Одежда',
         'Инструменты',
         'Разное'
-    ];
+    ];*/
 
-    $lots = [
+    // Вывел категории из базы данных!
+    $categories_sql = "SELECT `name`, `code` FROM category";
+    $categories_result = mysqli_query($link, $categories_sql);
+    $categories = mysqli_fetch_all($categories_result, MYSQLI_ASSOC);
+
+    /*$lots = [
         [
             'name' => '2014 Rossignol District Snowboard',
             'category' => 'Доски и лыжи',
@@ -58,4 +68,14 @@
             'img_url' => 'img/lot-6.jpg',
             'last_date' => '2019-10-31',
         ]
-    ];
+    ];*/
+    $lots_sql = "SELECT lot.`title` AS `name`, lot.`initial_rate` AS `price`, lot.`image` AS `img_url`, lot.`date_close` AS `last_date`, category.`name` AS `category` FROM `lot` "
+        . "JOIN `category` ON category.`id` = lot.`category_id` "
+        . "WHERE lot.`date_close` > NOW() "
+        . "GROUP BY lot.`id` "
+        . "ORDER BY lot.`date_add` ASC";
+    $lots_result = mysqli_query($link, $lots_sql);
+    $lots = mysqli_fetch_all($lots_result, MYSQLI_ASSOC);
+    print("<pre>");
+    var_dump($lots);
+    print("</pre>");
