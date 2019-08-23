@@ -3,10 +3,6 @@
     require_once('data.php');
     require_once('function.php');
 
-    print(strtotime('2019-10-10 14:31'));
-    print("<br>");
-    print(time());
-
     $content = include_template('main.php', [
         'categories' => $categories,
         'lots' => $lots,
