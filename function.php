@@ -1,4 +1,5 @@
 <?php
+    require_once('helpers.php');
 
     function format_amount($number)
     {
@@ -13,7 +14,6 @@
 
     function get_dt_range($format)
     {
-        // $time_now = strtotime("2019-10-10 14:31");
         $time_now = time();
         $time_last = strtotime($format);
 
@@ -24,4 +24,30 @@
         $mins = str_pad($b, 2, "0", STR_PAD_LEFT);
         $array = [$hours, $mins];
         return $array;
+    }
+
+    function db_fetch_data($link, $sql, $data = [])
+    {
+        $result = [];
+        $stmt = db_get_prepare_stmt($link, $sql, $data);
+        mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
+
+        if ($res) {
+            $result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+        }
+
+        return $result;
+    }
+
+    function db_insert_data($link, $sql, $data = [])
+    {
+        $stmt = db_get_prepare_stmt($link, $sql, $data);
+        $result = mysqli_stmt_execute($stmt);
+
+        if ($result) {
+            $result = mysqli_insert_id($link);
+        }
+
+        return $result;
     }
