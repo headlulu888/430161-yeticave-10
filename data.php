@@ -1,8 +1,7 @@
 <?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
     require_once('config/db.php');
     require_once('function.php');
+    require_once('helpers.php');
 
     $link = mysqli_connect($db['host'], $db['user'], $db['password'], $db['database']);
     mysqli_set_charset($link, 'utf8');
